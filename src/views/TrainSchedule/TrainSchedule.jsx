@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+//import toast, { Toaster } from 'react-hot-toast';
 const trainSchedule = [
     {
         name: "Rajdhani Express",
@@ -143,19 +143,23 @@ const trainSchedule = [
 function Application() {
     const [inputValue, setInputValue] = useState('');
     const [trainInfo, setTrainInfo] = useState(null);
+    const [message, setMessage] = useState('');
 
     const SearchTrain = () => {
         const train = findTrain(inputValue);
         setTrainInfo(train ? train : null);
+        setMessage(train ? "Train found!" : "Train not found.");
         setInputValue(""); 
     };
 
     const findTrain = (input) => {
        
         const filteredTrains = trainSchedule.filter(train => {
-            if (train.number === input) {
+            if (train.name == input) {
+                
                 return true; 
             } else {
+               
                 return false; 
             }
         });
@@ -164,7 +168,9 @@ function Application() {
     };
 
     function renderTrainInfo() {
-        if (trainInfo !== null) {
+        if (trainInfo !== null) 
+            
+            {
             return (
                 <div className="border border-gray-300 rounded-lg p-4 mt-4">
                     <div className="bg-green-700 text-white flex flex-col md:flex-row md:justify-between p-2 rounded">
@@ -209,13 +215,14 @@ function Application() {
                     <hr />
                 </div>
             );
-        } else if (inputValue) {
-            return (
-                <p className="text-red-500">No train found with number "{inputValue}".</p>
-            );
+        }  else if (inputValue) 
+      
+        {
+           /* return (
+                <p className="text-red-500">No train found with Name "{inputValue}".</p>
+            );*/
         }
-    }
-
+}
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
             <div className="mb-4 w-full max-w-md">
@@ -223,7 +230,7 @@ function Application() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Enter Train Number"
+                    placeholder="Enter Train Name"
                     className="p-2 border border-gray-300 rounded w-full"
                     required
                 />
@@ -234,7 +241,9 @@ function Application() {
                     Search Train
                 </button>
             </div>
-            
+            {
+               message && <p className="text-green-700">{message}</p>
+            }
             {renderTrainInfo()}
         </div>
     );
@@ -242,4 +251,6 @@ function Application() {
 
 export default Application;
 
+//import TrainSchedule from "./views/TrainSchedule/TrainSchedule";
+//<Route path="train-schedules" element={<TrainSchedule />} />
  

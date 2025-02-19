@@ -6,7 +6,6 @@ import Home from "./views/Home/Home";
 import TrainExplorer from "./views/TrainSearch/TrainExplorer";
 
 
-
 const App = () => {
   return (
     <Router>

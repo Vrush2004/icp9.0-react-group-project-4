@@ -156,10 +156,10 @@ function Application() {
        
         const filteredTrains = trainSchedule.filter(train => {
             if (train.name == input) {
-                
+                setMessage("Train found!");
                 return true; 
             } else {
-               
+                setMessage("Train not found.");
                 return false; 
             }
         });
@@ -218,9 +218,7 @@ function Application() {
         }  else if (inputValue) 
       
         {
-           /* return (
-                <p className="text-red-500">No train found with Name "{inputValue}".</p>
-            );*/
+           
         }
 }
     return (
@@ -242,7 +240,7 @@ function Application() {
                 </button>
             </div>
             {
-               message && <p className="text-green-700">{message}</p>
+              <p className="text-green-700">{message}</p>
             }
             {renderTrainInfo()}
         </div>
@@ -251,6 +249,5 @@ function Application() {
 
 export default Application;
 
-//import TrainSchedule from "./views/TrainSchedule/TrainSchedule";
-//<Route path="train-schedules" element={<TrainSchedule />} />
+
  

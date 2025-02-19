@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./views/Home/Home";
 import TrainExplorer from "./views/TrainSearch/TrainExplorer";
 
+import TrainSchedule from "./views/TrainSchedule/TrainSchedule.jsx"
 
 const App = () => {
   return (
@@ -13,6 +14,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/train-explorer" element={<TrainExplorer />} />
+
+        <Route path="train-schedules"element={< TrainSchedule/>} />
       </Routes>
       <Footer />
     </Router>

@@ -155,11 +155,9 @@ function Application() {
     const findTrain = (input) => {
        
         const filteredTrains = trainSchedule.filter(train => {
-            if (train.name == input) {
-                setMessage("Train found!");
+            if (train.name == input ) {   
                 return true; 
             } else {
-                setMessage("Train not found.");
                 return false; 
             }
         });
@@ -215,11 +213,9 @@ function Application() {
                     <hr />
                 </div>
             );
-        }  else if (inputValue) 
-      
-        {
-           
-        }
+        }  
+        
+           return null;
 }
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">

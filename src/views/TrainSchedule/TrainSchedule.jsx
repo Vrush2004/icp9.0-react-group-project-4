@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import toast, { Toaster } from 'react-hot-toast';
+
 const trainSchedule = [
     {
         name: "Rajdhani Express",
@@ -155,7 +155,7 @@ function Application() {
     const findTrain = (input) => {
        
         const filteredTrains = trainSchedule.filter(train => {
-            if (train.name == input ) {   
+            if (train.route == input ) {   
                 return true; 
             } else {
                 return false; 
@@ -224,7 +224,7 @@ function Application() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Enter Train Name"
+                    placeholder="Enter your route"
                     className="p-2 border border-gray-300 rounded w-full"
                     required
                 />
